@@ -1,0 +1,25 @@
+{
+  "name": "webpack-learning",
+  "version": "1.0.0",
+  "description": "webpack 从零开始",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ww028/webpack-learning.git"
+  },
+  "keywords": [],
+  "author": "wwjobs@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ww028/webpack-learning/issues"
+  },
+  "homepage": "https://github.com/ww028/webpack-learning#readme",
+  "devDependencies": {
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
