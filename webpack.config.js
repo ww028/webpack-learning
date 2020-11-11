@@ -1,16 +1,26 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 注意，这里有个坑，引入方式和官方文档不一致，官方文档提供的方式打包将会报错
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   // 入口文件路径
   entry: {
     app: "./src/index.js",
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist"
+    contentBase: "./dist",
+    hot: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   // 插件
   plugins: [
@@ -20,8 +30,9 @@ module.exports = {
       // html titil
       title: "Output Management",
       // html 路径
-      template: "src/index.html"
+      template: "src/index.html",
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   // 输出目录
   output: {
