@@ -8,6 +8,10 @@ module.exports = {
   entry: {
     app: "./src/index.js",
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: "./dist"
+  },
   // 插件
   plugins: [
     // 注意，这里和官方文档不一致，调用这个插件可以不用传参数，否则也会报错
