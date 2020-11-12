@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --mode development --env development",
-    "build": "webpack"
+    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "node-sass": "^4.13.1",
     "sass-loader": "^7.3.1",
     "style-loader": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.10.2"

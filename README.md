@@ -3,32 +3,20 @@
 * [webpack从零开始 -03](https://juejin.im/post/6893536752812687367)
 * [webpack从零开始 -04](https://juejin.im/post/6893891672145395726)
 * [webpack从零开始 -05](https://juejin.im/post/6893899534360018958)
+* [webpack从零开始 -06](https://juejin.im/post/6894236054660841479)
 
-本文代码github地址：[戳我](https://github.com/ww028/webpack-learning/tree/dev-6.0)
+本文代码github地址：[戳我](https://github.com/ww028/webpack-learning/tree/dev-7.0)
 
-# tree shaking
-官方文档这样子说：
-"tree shaking 是一个术语，通常用于描述移除 JavaScript 上下文中的未引用代码(dead-code)
-通过 package.json 的 "sideEffects" 属性作为标记，向 compiler 提供提示，表明项目中的哪些文件是 "pure(纯的 ES2015 模块)"，由此可以安全地删除文件中未使用的部分。"
+# 生产环境构建
+在实际的应用场景当中，开发环境和生产环境的构建目标差异巨大，为了更合理的优化资源，改善加载资源。。反正就是合理，各种好。我们通常会根据不同的环境分别写webpack 配置。
 
-其实说白了就是一个可以减小打包文件体积的配置，并且引入却未使用的代码会降低亮度。比如我在配置前 /dist/app.bundle.js 的文件大小是106kb，配置后是71.4kb，看起来之后30多kb 的差距，但是这也减少了30% 的大小。
+首先我们先安装```webpack-merge```
+```
+cnpm install --save-dev webpack-merge
+```
 
-启用这个配置很简单。
-package.json
+然后我们旧的webpack.config.js 文件没有用了，在根目录新建三个文件，分别是
+webpack.common.js
 ```
-{
-  name: "项目名称",
-  "sideEffects": false,
-  ...
-}
+
 ```
-设置完之后再设置 mode 切换到压缩输出
-webpack.config.js
-```
-module.exports = {
-  ...
-  mode: "production"
-  ...
-}
-```
-再执行 ```npm run build``` 就可以了
