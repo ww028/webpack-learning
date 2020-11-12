@@ -1,6 +1,8 @@
 {
   "name": "webpack-learning",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "1.0.0",
   "description": "webpack 从零开始",
   "private": true,

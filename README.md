@@ -22,6 +22,7 @@ package.json
   ...
 }
 ```
+
 设置完之后再设置 mode 切换到压缩输出
 webpack.config.js
 ```
@@ -31,4 +32,15 @@ module.exports = {
   ...
 }
 ```
-再执行 ```npm run build``` 就可以了
+再执行 ```npm run build``` 这是后发现样式表没有了。
+“注意，任何导入的文件都会受到 tree shaking 的影响。这意味着，如果在项目中使用类似 css-loader 并导入 CSS 文件，则需要将其添加到 side effect 列表中，以免在生产模式中无意中将它删除”
+
+所以再修改一下package.json
+```
+  ...
+  sideEffects": [
+    "*.css"
+  ]
+  ...
+```
+再次打包就可以了。
