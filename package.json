@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --config webpack.dev.js --mode development --env development ",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "analyze": "NODE_ENV=production npm_config_report=true npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,13 @@
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "lodash": "^4.17.20",
     "node-sass": "^4.13.1",
     "sass-loader": "^7.3.1",
     "style-loader": "^2.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.4.0",
+    "webpack-bundle-analyzer": "^4.1.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.10.2"
   }

@@ -4,13 +4,14 @@ const merge = require('webpack-merge');
 TODO: "解决 UglifyJSPlugin 插件报错"
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; 
 
 module.exports = merge(common, {
-  devtool: "source-map",
   plugins: [
     // new UglifyJSPlugin()
     new webpack.DefinePlugin({
       "process.en.NODE_ENV": JSON.stringify("production")
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 });
